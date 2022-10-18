@@ -1,0 +1,455 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    background: rgb(0,0,0);
+    background: white;
+    margin:0;
+    background-size: 100px ;
+    overflow: auto;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+A{
+    text-decoration:none;
+    color: bisque;
+    font-size: 2.5em;
+}
+p{
+    font-size: 2em;
+    justify-self: center;
+    padding: 1em;
+}
+section{
+    padding: 3.5em;  
+}
+
+.logo{
+    max-width: 8em;
+    border-radius: 100% ;
+    background-color: #fff; 
+}
+
+/* nav */
+.nav{
+    background-color:  #00aa2a;
+    padding: .5em 1em;
+    display: flex;
+    justify-content: center;
+}
+
+nav{
+    padding: .5em 1em;
+    display: flex;
+}
+
+
+.link-nav:hover{
+    color: #f4f4f485;
+}
+
+.link-nav{
+    color: aliceblue;
+    font-family: 'Poppins', sans-serif;
+}
+
+.ul{
+    display:flex;
+    gap:2em;
+    list-style:none;
+    flex-wrap: wrap;
+    max-width: 100%;
+    padding-top: 2em;
+}
+
+
+@media screen and (max-width: 640px) {
+    .ul {
+        grid-template-columns: auto;
+        grid-template-rows: 1fr;
+        object-fit: cover;
+        list-style-type: circle;
+    }
+    }
+    /* fin nav */
+
+    /* nav responsive */
+.toggle-button{
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 45px;
+    height: 51px;
+}
+
+.toggle-button .bar{
+    height: 2em;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+@media (max-width:800px) {
+    .toggle-button{
+        display: flex;
+    }
+
+    .navbar-links{
+        display: none;
+        width: 100%;
+        position: absolute;
+        background-color: #000;
+        top:6em;
+        right:0;
+        bottom:0;
+        right:0;
+        height: 800vh; 
+        z-index: 999;
+    }
+    .navbar{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-links ul{
+        width: 100%; 
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .navbar-links li{
+        text-align: center;
+    }
+
+    .navbar-links.active{
+        display: flex;
+    } 
+
+    .logo{
+        display: block;
+}
+}
+.natural-logotype{
+    max-width: 25em;
+    border-radius: 100% ;
+}
+
+/* fin nav resposive */
+
+.preloader{
+    background-color: #000;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: .8rem;
+    animation-name: articleanimations;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.logo-loader{
+    display: flex;
+    max-width: 8em;
+    border-radius: 100% ;
+    background-color: rgb(255, 255, 254);
+    padding: .8rem;animation-name: articleanimations;
+    animation-duration: 2s;
+    animation-timing-function: linear no-repeat;
+    opacity: 0;
+    pointer-events: none;
+}
+
+@keyframes articleanimations{
+    0%{opacity: 1;}
+    100%{opacity:0;}
+}
+
+/* section-1 */
+.section-1{
+    background-image: url(/assetes/img/fondo-section.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -500px;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2em 10em;
+}
+
+h1{
+    color: aliceblue;
+    font-size: 6em;
+
+}
+
+.p-section-1{
+    font-size: 3.5em;
+    color: aliceblue;
+    background-color: #00000060;
+    text-align: center;
+    padding:0 5em;                                                   ;
+}
+
+@media (max-width:1400px){
+    h1{
+        font-size: 4em;
+    }
+    .p-section-1{
+        font-size: 2em;
+    }
+    .section-1{
+
+        background-position-y: 0px;
+    }
+
+
+}
+/* section intro */
+
+
+.section-intro {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10em 0;
+    
+}
+.section-intro-container{
+    justify-content: center;
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 8rem;
+    padding-top: 8em;
+}
+
+.div-intro{
+    width: 800px;
+}
+/* section productos */
+
+
+.section-productos{
+    width: 100%;
+    padding: 10em 0;
+    background-image: linear-gradient(93deg, hsla(0, 0%, 67.1%, 0.19), rgba(149, 144, 144, 0.25));
+}
+img{
+    max-width: 30em;
+    max-height: 30em;
+    margin: 1em;
+    align-items: center;
+}
+
+
+/* grid img */
+
+.h2-productos{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+h2{
+    font-size: 2.5em;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+}
+.img-productos {
+    margin: 3em;
+}
+.grid-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.img-productos {
+    display: inline-grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 2em;
+    place-content: center;
+    }
+    
+    .img-1 { grid-area: 1 / 2 / 2 / 2; }
+    .img-2 { grid-area: 1 / 1 / 2 / 3; }
+    .img-3 { grid-area: 1 / 3 / 2 / 4; }
+    .img-4 { grid-area: 2 / 1 / 3 / 2; }
+    .img-5 { grid-area: 2 / 2 / 3 / 3; }
+    .img-6 { grid-area: 2 / 3 / 3 / 4; } 
+
+    
+    @media screen and (max-width: 1000px) {
+        .img-productos {
+        display: flex;
+        }
+        }
+
+
+/* buy notton */
+.products-container{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buy{
+    box-shadow: 2px 3px 4px 0px rgba(104, 95, 95, 0.45);
+    border: none;
+    cursor: pointer;
+    padding: .5em;
+    border: 1px solid black;
+    border-radius: 6px;
+    background: black;
+    font-size: 1.5em;
+    color: #fff;
+    text-decoration: none;
+    transition: .3s ease;
+    width: fit-content;
+}
+
+.buy:hover{
+    color:black;
+    background: #fff;
+}
+
+/* section reciclable */
+
+.section-reciclable{
+    width: 100%;
+    padding: 10em 0;
+}
+
+#img-reciclables{
+    display: flex;
+    width: 100%;
+    height: 100em;
+}
+/* section auspiciantes */
+.nuestros-auspiciantes{
+    padding: 10em 0;
+}
+
+.h2-auspiciantes{
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin: 2em;
+}
+
+.div-auspiciantes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.div-img-auspiciantes{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.img-auspiciantes{
+    width: 18em;
+}
+.h3-auspiciantes{
+    display: flex;
+    font-size: 2em;
+    justify-content: center;
+    color: #000;
+}
+
+.div-natural-logotype{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding-top: 8em;
+}
+
+/* footer */
+.svg-whastapp{
+    /* display: fixed; */
+    position: fixed;
+    width: 7em;
+    top: 1250px;
+    left: 3000px;
+}
+footer{
+    padding: 3em;
+    background-color:  #00aa2a;
+
+}
+
+footer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+    
+    .footer-redes{ grid-area: 1 / 1 / 2 / 2; }
+    .footer-links { grid-area: 1 / 2 / 2 / 3; }
+    
+.footer-logo{
+    width: 10em;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+}
+.logo-footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h3{
+    display: flex;
+    font-size: 2em;
+    justify-content: center;
+    color: #ffffff;
+}
+.svg-redes{
+    width: 2.5em;
+}
+.redes-footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+    border-right: solid #fff;
+}
+.footer-links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:10em 
+}
+a{
+    color:  #fffdfd;
+}
+li{
+    display: flex;
+    flex: end;
+}
