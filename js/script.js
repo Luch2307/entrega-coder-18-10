@@ -1,59 +1,71 @@
 
   const sections = document.querySelectorAll(".product-info");
+  let botonFinalizar = document.getElementById("finalizar");
+  let table = document.getElementById("tablabody");
+  console.log(table);
+  let totalCarrito = 0;
+  const getCart = () => {
+  return localStorage.getItem("Cart")
+  }
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  if(carrito.length != 0){
+    console.log("Recuperando carro")
+    dibujarTabla();
+}
   const productContainer =  document.getElementById("img-productos")
   console.log(productContainer,sections)
   const secArr = Array.from(sections);
   const productosarrays=[
     {
-        id:1,
+        qty:1,
         imagen:"../assetes/img/falafel.png",
         nombre:"Falafel",
         descripcion:"milanesa 160gr",
-        precio:840
+        precio:740
     },{
-        id:2,
+        qty:2,
         imagen:"../assetes/img/pan-clasico.png",
         nombre:"Pan Clasico",
         descripcion:"milanesa 160gr",
-        precio:840
+        precio:940
     },{
-        id:3,
+        qty:3,
         imagen:"../assetes/img/burga-remo.png" ,
         nombre:"Burga de remolacha",
         descripcion:"milanesa 160gr",
-        precio:840
+        precio:640
     },{
-        id:4,
+        qty:4,
         imagen:"../assetes/img/teques.png" ,
         nombre:"Tequeños",
         descripcion:"milanesa 160gr",
-        precio:840
+        precio:640
     },{
-      id:5,
+      qty:5,
       imagen:"../assetes/img/pack-mix.png"  ,
       nombre:"Burgas Mix",
       descripcion:"milanesa 160gr",
-      precio:840
+      precio:780
   },{
-    id:6,
+    qty:6,
     imagen:"../assetes/img/mila-seitan.png",
     nombre:"Milanesa de seitan",
     descripcion:"milanesa 160gr",
-    precio:840
+    precio:770
 },{
-  id:7,
+  qty:7,
   imagen:"../assetes/img/nuggets-tofu.png" ,
   nombre:"Nuggets",
   descripcion:"milanesa 160gr",
-  precio:840
+  precio:740
 },{
-  id:8 ,   
+  qty:8 ,   
   imagen:"../assetes/img/burga-lente.png" ,
   nombre:"Burga de lente",
   descripcion:"milanesa 160gr",
-  precio:840
+  precio:640
 },{
-  id:9,    
+  qty:9,    
   imagen:"../assetes/img/pan-remo.png",
   nombre:"Pan de remolacha",
   descripcion:"milanesa 160gr",
@@ -62,6 +74,7 @@
 ]
 const fragment = document.createDocumentFragment()
 
+// crear taarjetas de prods
 productosarrays.forEach(element => {
   let div = document.createElement("DIV")
   div.className = "products-container"
@@ -71,45 +84,58 @@ productosarrays.forEach(element => {
 productContainer.append(fragment)
 
 
-
-
-let entidad1= "persona"
-let entidad2="empresa"
-let entrada = prompt("Indique si es empresa  o particular")
-if ((entrada=="particular") ||(entrada=="empresa")){
-    alert("Usted es"+entrada)
-}else{
-    alert("Error al ingresar su entidad")
-}
-
+// Añadir productos al carrito
 function respuestaClick(id){
   const getCart = () => {
     return localStorage.getItem("Cart")
   }
   const newProduct = productosarrays.find(product=>product.id==id)
   let updateCart = getCart() !== null ? [...JSON.parse( getCart()), newProduct] : [newProduct] 
-  localStorage.setItem("Cart", JSON.stringify(updateCart))
+  localStorage.setItem("Cart", JSON.stringify([newProduct]))
   let precioTotal = 0
   if( getCart() !== null) JSON.parse( getCart()).forEach(el=> precioTotal += el.precio)
   console.log(precioTotal);
+dibujarTabla();
 }
+respuestaClick();
 
-
-let totalPrice = 0
-
-if (entrada=="particular") {
-    alert("totalprice"*1.21)
-}else if(entrada=="empresa"){
-    alert("totalprice")
+function dibujarTabla(){
+  console.log("funcion")
+  if(JSON.parse( getCart()).length)
+  {
+    console.log("funcion1")
+  let count = 0;
+  for(const producto of JSON.parse( getCart())){
+  table.innerHTML = count?table.innerHTML+ `
+      <tr>
+          <td>${producto.qty}</td>
+          <td>${producto.nombre}</td>
+          <td>${producto.precio}</td>
+      </tr>
+  `:`   
+  <tr>
+    <td>${producto.qty}</td>
+    <td>${producto.nombre}</td>
+    <td>${producto.precio}</td>
+</tr>`
+  count+=1
+  totalCarrito+= producto.precio*producto.qty
+  }
+  let infoTotal = document.getElementById("total");
+  infoTotal.innerHTML="Total a pagar $: "+totalCarrito;
+  // storage
+  localStorage.setItem("carrito",JSON.stringify(carrito))
+} 
 }
+dibujarTabla();
 
 
-
-
-
-
-
-
+botonFinalizar.onclick = () => {
+  carrito = [];
+  document.getElementById("tablabody").innerHTML="";
+  let infoTotal = document.getElementById("total");
+  infoTotal.innerText="Total a pagar $: ";
+}
 
   const options = {
     threshold: 1,
@@ -124,7 +150,7 @@ if (entrada=="particular") {
         observer.unobserve(entry.target);
       }
       return;
-    });
+    }); 
   }, options);
 
   secArr.map((section) => {

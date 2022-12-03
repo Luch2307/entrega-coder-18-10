@@ -93,12 +93,26 @@
         </div>
         <div class="grid-container" >
             <div class="img-productos"id="img-productos">
-               
             </div>
         </div>
     </section>
-    <div class="carrito">Carrito</div>
-
+    <h4 class="carrito"> Mi carrito</h4> 
+    <table class="table-table-striped">
+        <thead>
+            <tr>
+                <th class="columna-carrito" scope="col">Cantidad</th>
+                <th class="columna-carrito" scope="col">Nombre</th>
+                <th class="columna-carrito"  scope="col">Precio</th>
+            </tr>
+        </thead>
+    
+        <tbody id="tablabody">
+            <!-- tabla carrrito -->
+        </tbody>   
+    </table> 
+    <h4 id="total">Total a pagar $:</h4>
+</div>
+<button id="finalizar" class="btn-btn-success">Finalizar Compra</button>
     <section class="comunidad">
         <h2></h2>
     </section>
@@ -156,7 +170,5 @@
         </div>
     </footer>
     <script src="./js/script.js"></script>
-
 </body>
-
 </html>
